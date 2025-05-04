@@ -23,52 +23,13 @@ This project sets up a serverless data pipeline using:
 
 📐 Architecture Overview
 
-+------------------------+
-| Cloud Scheduler        |
-| (Daily Trigger)        |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| Cloud Function         |
-| - Python + pandas      |
-| - Ingest weather data  |
-| - Push to BigQuery     |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| BigQuery               |
-| - raw.weather_daily    |
-| - staging/marts models |
-+-----------+------------+
-            |
-            v
-+------------------------+
-| dbt                    |
-| - Transformations      |
-| - Exposures, tests     |
-+------------------------+
+![image](https://github.com/user-attachments/assets/aa7cf39e-12fe-4898-a6e8-f5f5e1b96677)
 
-gcp-terraform-project/
-├── function-code/              # Python Cloud Function source
-│   ├── main.py
-│   ├── requirements.txt
-│   └── weather_function.zip
-├── modules/                    # Terraform modules
-│   ├── datasets/               # BigQuery datasets and tables
-│   ├── function/               # Cloud Function resource
-│   ├── scheduler/              # Cloud Scheduler job
-│   ├── iam/                    # IAM bindings
-│   └── project_services/       # API service enablement
-├── chicago-dbt/                # dbt models (optional if separate)
-│   ├── models/
-│   └── dbt_project.yml
-├── main.tf                     # Terraform root config
-├── variables.tf
-├── outputs.tf
-├── terraform.tfvars
-└── README.md
+![image](https://github.com/user-attachments/assets/7fdf835f-2edd-4252-a322-7a5c9359281b)
+
+![image](https://github.com/user-attachments/assets/516dc248-5309-4ced-96eb-98ae327c0860)
+
+
 
 ---
 
